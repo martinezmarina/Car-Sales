@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
@@ -37,4 +38,17 @@ const App = () => {
   );
 };
 
-export default App;
+const mapStateToProps = state => {
+  console.log('App.js mSTP is running...', { state });
+
+  return {
+    car: state.car,
+    additionalFeatures: state.additionalFeatures,
+    additionalPrice: state.additionalPrice
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  {}
+)(App);
