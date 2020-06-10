@@ -1,5 +1,6 @@
 import React from 'react';
 import AdditionalFeature from './AdditionalFeature';
+import { connect } from 'react-redux';
 
 const AdditionalFeatures = props => {
   return (
@@ -17,5 +18,15 @@ const AdditionalFeatures = props => {
     </div>
   );
 };
+const mapStateToProps = state => {
+  console.log('AdditionalFeatures.js mSTP is running...', { state });
 
-export default AdditionalFeatures;
+  return {
+    additionalFeatures: state.additionalFeatures
+  }
+};
+
+export default connect(
+  mapStateToProps, {})(AdditionalFeatures);
+
+
